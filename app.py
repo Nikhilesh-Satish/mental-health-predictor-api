@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # ✅ NEW: import CORS
 import pandas as pd
 import joblib
 
 app = Flask(__name__)
+CORS(app)  # ✅ NEW: allow cross-origin requests (e.g., from React)
 
 # Load once
 model = joblib.load("random_forest_model.joblib")
